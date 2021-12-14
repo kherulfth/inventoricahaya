@@ -9,11 +9,12 @@
             <div class="box-header">
                 <p>
                     <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
+                    <a href="{{ url('supplier/add') }}" class="btn btn-sm btn-flat btn-primary"><i class="fa fa-refresh"></i> Tambah Supplier</a >
                 </p>
             </div>
             <div class="box-body">
                <div class="table-responsive">
-                   <table class="table">
+                   <table class="table myTable">
                        <thead>
                            <tr>
                                <th>#</th>

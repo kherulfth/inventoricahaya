@@ -22,7 +22,9 @@ Route::get('/keluar', function(){
 });
 
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/supplier', 'Supplier_Controller@index');
+    Route::get('/supplier', 'Supplier_controller@index');
+    Route::get('/supplier/add', 'Supplier_controller@add');
+    Route::post('/supplier/add', 'Supplier_controller@store');
 });
 
 Auth::routes();
