@@ -37,4 +37,45 @@ class Supplier_controller extends Controller
         \Session::flash('sukses', 'Data Berhasil Ditambah');
         return redirect('supplier');
     }
+
+    public function edit($id){
+        $title = 'Edit Data Supplier';
+        $dt = M_supplier::find($id);
+
+        return view('supplier.edit', compact('title', 'dt'));
+    }
+
+    public function update(Request $request, $id){
+        $this->validate($request, [
+            'nama' => 'required',
+            'no_telp' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $a['nama'] = $request->nama;
+        $a['no_telp'] = $request->no_telp;
+        $a['alamat'] = $request->alamat;
+        $a['updated_at'] = date('Y-m-d H:i:s');
+
+        M_supplier::where('id', $id)->update($a);
+        \Session::flash('sukses', 'Data Berhasil Diupdate');
+        return redirect('supplier');
+    }
+
+    public function delete($id){
+        try {
+
+            M_supplier::where('id', $id)->delete();
+
+            \Session::flash('sukses', 'Data Berhasil Dihapus');
+
+        } catch (\Exception $e) {
+
+            \Session::flash('gagal', $e->getMessage());
+
+        }
+        $title = 'Edit Data Supplier';
+
+        return redirect('supplier');
+    }
 }

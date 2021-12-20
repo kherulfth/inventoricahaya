@@ -25,6 +25,17 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/supplier', 'Supplier_controller@index');
     Route::get('/supplier/add', 'Supplier_controller@add');
     Route::post('/supplier/add', 'Supplier_controller@store');
+    Route::get('/supplier/{id}', 'Supplier_controller@edit');
+    Route::put('/supplier/{id}', 'Supplier_controller@update');
+    Route::delete('/supplier/{id}', 'Supplier_controller@delete');
+
+    // Route::get('/produk', 'Produk_controller@index');
+    Route::get('/produk/add', 'Produk_controller@add');
+    Route::post('/produk/add', 'Produk_controller@store');
+    // Route::get('/produk/{id}', 'Produk_controller@edit');
+    // Route::put('/produk/{id}', 'Produk_controller@update');
+    // Route::delete('/produk/{id}', 'Produk_controller@delete')
+
 });
 
 Auth::routes();
